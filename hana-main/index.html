@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/swiper.css">
+    <title>하나성형외과</title>
+    <style>
+        /* thin 100 */
+        @font-face {
+            font-family:'nskr';
+            src:url(./fonts/Noto_Sans_KR/NotoSansKR-Thin.otf);
+            font-weight:100;
+        }
+        /* light 300 */
+        @font-face {
+            font-family:'nskr';
+            src:url(./fonts/Noto_Sans_KR/NotoSansKR-Light.otf);
+            font-weight:300;
+        }
+        /* regural 400 */
+        @font-face {
+            font-family:'nskr';
+            src:url(./fonts/Noto_Sans_KR/NotoSansKR-Regular.otf);
+            font-weight:400;
+        }
+        /* medium 500 */
+        @font-face {
+            font-family:'nskr';
+            src:url(./fonts/Noto_Sans_KR/NotoSansKR-Medium.otf);
+            font-weight:500;
+        }
+        /* bold 700 */
+        @font-face {
+            font-family:'nskr';
+            src:url(./fonts/Noto_Sans_KR/NotoSansKR-Bold.otf);
+            font-weight:700;
+        }
+        /* black 900 */
+        @font-face {
+            font-family:'nskr';
+            src:url(./fonts/Noto_Sans_KR/NotoSansKR-Black.otf);
+            font-weight:900;
+        }
+
+        @font-face {
+            font-family:'gv';
+            src: url(./fonts/Great_Vibes/GreatVibes-Regular.ttf);
+            font-weight:400;
+        }
+
+        :root{
+            font-family:'nskr',sans-serif;
+            font-weight:400;
+            font-size:16px;
+            color:#0e0219;
+            line-height:1;
+        }
+
+        #wrap{
+            width:100%;
+            overflow:hidden;
+            height:3000px;
+        }
+        .container{
+            width:100%;
+            max-width:1280px;
+            margin:0 auto;
+            padding:0 22px;
+        }
+        .f-container{
+            width:100%;
+            max-width:2560px;
+            margin:0 auto;            
+        }
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            column-gap:20px;
+        }
+        #header{
+            position:fixed;            
+            left:0;
+            right:0;
+            top:0;
+            background:#fff;
+            z-index:20;
+        }
+        #header .grid{
+            align-items:center;
+            height:100px;
+        }
+        h1{
+            /* grid-row:1/2; */
+            order:2;
+            grid-column:2/4;
+            text-align:center;
+        }
+        h1 span{display:none;}
+        h1 img{
+            width:64px;
+        }
+        nav{
+            display:none;
+            position:absolute;
+            left:0;
+            right:0;
+            top:100px;
+            z-index:200;
+        }
+        nav.active{
+            display:block;
+        }
+        nav ul{
+            display:flex;
+            flex-flow:column nowrap;
+            justify-content:space-evenly;
+            align-items:center;
+            height:calc(100vh - 100px);
+            background:#361656;
+            font-size:24px;
+            color:#fff;
+        }
+        nav li:hover{
+            color:#361656;
+            text-shadow:1px 0 0 #fff, -1px 0 0 #fff,0 1px 0 #fff,0 -1px 0 #fff;
+        }        
+        .lang{
+            /* grid-row:1/2; */
+            order:1;
+            grid-column:1/2;
+            display:flex;
+        }
+        .lang select{
+            font-size:14px;
+            border:none;
+            order:2;
+        }
+        .lang .img-box{
+            display:none;
+            width:26px;
+            order:1;
+        }
+        .btn-nav{
+            /* grid-row:1/2; */
+            order:3;
+            grid-column:4/5;            
+            height:18px;
+            display:flex;
+            flex-flow:column nowrap;
+            justify-content:space-between;
+            align-items:flex-end;
+        }
+        .btn-nav::before,.btn-nav::after{
+            content:'';
+            display:block;
+            width:26px;
+            height:2px;
+            border-radius:1px;
+            background:#361656;
+        }
+        .btn-nav span{
+            width:26px;
+            height:2px;
+            border-radius:1px;
+            background:#361656;
+            text-indent:-99999px;
+        }
+        #sec01{
+            position: relative;
+            z-index:19;
+            padding-top:100px;
+            background:url('./images/bg-full.jpg') no-repeat center center;
+            background-size:cover;
+
+        }
+        #sec01 .container{
+            position:relative;
+            overflow:hidden;
+            height:411px;
+            background:url()
+        }
+        #sec01 h2{
+            display:none;
+        }
+        #sec01 h3{
+            font-family:'gv',serif;
+            font-weight:900;
+            font-size:25vw;
+            font-style:italic;
+            color:rgba(255,255,255,0.5);
+            position:absolute;
+            top:130px;
+            left:50%;
+            transform:translateX(-55%);
+            
+        }        
+        #sec01 article{
+            position:absolute;
+            top:0;
+            bottom:0;
+        }
+        #sec01 .art01{
+            left:0;
+            right:0;
+        }
+        #sec01 .art02{
+            left:100%;
+            right:-100%;
+        }
+        #sec01 .art03{
+            left:200%;
+            right:-200%;
+        }
+        #sec01 .grid{
+            grid-template-columns:1fr;
+            padding-top:60px;
+        }
+        #sec01 p{
+            position:relative;
+            z-index:10;
+            margin-bottom:9px;
+            font-size:24px;
+            text-align:center;
+        }
+        #sec01 p:last-of-type{
+            margin-bottom:70px;
+        }
+        #sec01 .img-box{
+            position:absolute;
+            left:50%;
+            bottom:0;
+            z-index:9;
+            transform:translateX(-50%);
+            width:360px;
+        }
+        #sec01 .img-box::before{
+            content:'';
+            display:block;
+            width:250px;
+            height:250px;
+            border-radius:50%;
+            background:rgba(255,255,255,0.3);
+            position:absolute;
+            left:30px;
+            top:-30px;
+            z-index:100;
+        }
+        #sec01 .img-box img{
+            position:relative;
+            z-index:101;
+        }
+        .pager{
+            position:absolute;
+            left:50%;
+            bottom:22px;
+            z-index:20;
+            transform:translateX(-50%);
+            width:70px;
+            display:flex;
+            justify-content:space-between;
+        }
+        .pager span{
+            width:14px;
+            height:14px;
+            border-radius:50%;
+            background:#fff;
+            text-indent:-99999px;
+        }
+        .pager span:first-child{
+            background:#361656;
+        }
+
+
+        
+
+
+
+        @media (min-width:768px){
+            .grid{
+                grid-template-columns:repeat(8,1fr);
+            }
+            h1{
+                grid-column:3/7;
+            }
+            h1 img{
+                width:120px;
+            }
+            .lang{
+                grid-column:1/3;
+            }
+            .lang .img-box{
+                display:block;
+            }
+            .btn-nav{
+                grid-column:7/9;
+            }
+            #sec01 .container{
+                height:500px;
+            }
+            #sec01 .grid{
+                padding-top:80px;
+            }
+            #sec01 h3{
+                font-size:27vw;
+            }
+            #sec01 p{
+                font-size:36px;
+                margin-bottom:12px;
+            }
+            #sec01 p:last-of-type{
+                margin-bottom:22px;
+            }
+            #sec01 .img-box{
+                width:480px;
+            }
+            #sec01 .img-box::before{
+                width:360px;
+                height:360px;
+            }
+        }
+
+
+
+        @media (min-width:1280px){
+            .container{
+                padding:0 20px;
+            }
+            .grid{
+                grid-template-columns:repeat(12,1fr);
+            }
+            #header{
+                position:absolute;
+                background:transparent;
+            }
+            h1{
+                order:1;
+                grid-column:1/4;
+                text-align:left;
+            }
+            nav{
+                display:block;
+                order:2;
+                grid-column:4/10;
+                position:static;
+            }
+            nav ul{
+                flex-direction:row;
+                justify-content:space-between;
+                height:auto;
+                background:transparent;
+                font-size:14px;
+                color:#0e0219;
+            }
+            .lang{
+                order:3;
+                grid-column:10/13;
+                flex-flow:row-reverse nowrap;
+            }
+            .btn-nav{
+                display:none;
+            }           
+            #sec01 .container{
+                height:800px;
+            }
+            #sec01 .grid{
+                grid-template-columns:1fr 1fr;
+                padding-top:460px;
+            }
+            #sec01 h3{
+                font-size:300px;
+            }
+            #sec01 p{
+                font-size:60px;
+                text-align:left;
+            }
+            #sec01 p:last-of-type{
+                text-align:right;
+            }
+            #sec01 .img-box{
+                width:820px;
+            }
+            #sec01 .img-box::before{
+                width:600px;
+                height:600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section id="wrap">
+        <header id="header">
+            <div class="container">
+                <div class="grid">
+                    <h1>
+                        <a href="./index.html">
+                            <span>하나성형외과</span>
+                            <picture>
+                                <source media="(min-width:768px)" srcset="./images/logo02.svg">
+                                <img src="./images/logo01.svg" alt="로고">
+                            </picture>
+                        </a>
+                    </h1>
+                    <nav>
+                        <ul>
+                            <li><a href="#">하나성형외과</a></li>
+                            <li><a href="#">수술시술</a></li>
+                            <li><a href="#">실시간상담</a></li>
+                            <li><a href="#">커뮤니티</a></li>
+                        </ul>
+                    </nav>
+                    <div class="lang">
+                        <select>
+                            <option value="1">KO</option>
+                            <option value="2">CN</option>
+                            <option value="3">US</option>
+                            <option value="4">JP</option>
+                        </select>
+                        <div class="img-box"><img src="./images/flag_kr.svg" alt="대한민국"></div>                        
+                    </div>
+                    <div class="btn-nav" onclick="callNav();">
+                        <span>내비게이션 버튼</span>
+                    </div>
+                </div>
+            </div>            
+        </header>
+        <section class="sec" id="sec01">
+            <div class="container">
+                <h2>이벤트 바로가기</h2>
+                <article class="art01">
+                    <div class="grid">
+                        <h3>Beautiful</h3>
+                        <p>[자신감]의 시작</p>
+                        <p>하나성형외과</p>
+                        <div class="img-box"><img src="./images/full-img01.png" alt="여름 이벤트"></div>
+                    </div>
+                </article>
+                <article class="art02">
+                    <div class="grid">
+                        <h3>Pretty</h3>
+                        <p>단골만 모여</p>
+                        <p>하나성형외과</p>
+                        <div class="img-box"><img src="./images/full-img02.png" alt="단골 이벤트"></div>
+                    </div>
+                </article>
+                <article class="art03">
+                    <div class="grid">
+                        <h3>Cute</h3>
+                        <p>북마크만 모여</p>
+                        <p>하나성형외과</p>
+                        <div class="img-box"><img src="./images/full-img03.png" alt="즐겨찾기 이벤트"></div>
+                    </div>
+                </article>
+                <div class="pager">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                </div>
+            </div>            
+        </section>
+        <section class="sec" id="sec02">
+            <div class="f-container">
+                SECTION02
+            </div>            
+        </section>
+        <section class="sec" id="sec03">
+            <div class="container">
+                SECTION03
+            </div>            
+        </section>
+        <section class="sec" id="sec04">
+            <div class="container">
+                SECTION04
+            </div>
+        </section>
+        <section class="sec" id="sec05">
+            <div class="container">
+                SECTION05
+            </div>
+        </section>
+        <section class="sec" id="sec06">
+            <div class="f-container">
+                SECTION06
+            </div>            
+        </section>
+        <footer id="footer">
+            <div class="container">
+                FOOTER
+            </div>            
+        </footer>
+        <aside id="aside">
+            <div class="pf">
+                ASIDE
+            </div>            
+        </aside>
+    </section>
+
+
+    <script src="./js/swiper.js"></script>
+    <script>
+        let elNav = document.querySelector('nav');
+        function callNav(){
+            elNav.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
