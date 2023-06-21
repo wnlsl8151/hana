@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/swiper.css">
+    <title>하나성형외과</title>
+    <style>
+        /* thin 100 */
+        @font-face {
+            font-family:'nskr';
+            src:url(./fonts/Noto_Sans_KR/NotoSansKR-Thin.otf);
+            font-weight:100;
+        }
+        /* light 300 */
+        @font-face {
+            font-family:'nskr';
+            src:url(./fonts/Noto_Sans_KR/NotoSansKR-Light.otf);
+            font-weight:300;
+        }
+        /* regural 400 */
+        @font-face {
+            font-family:'nskr';
+            src:url(./fonts/Noto_Sans_KR/NotoSansKR-Regular.otf);
+            font-weight:400;
+        }
+        /* medium 500 */
+        @font-face {
+            font-family:'nskr';
+            src:url(./fonts/Noto_Sans_KR/NotoSansKR-Medium.otf);
+            font-weight:500;
+        }
+        /* bold 700 */
+        @font-face {
+            font-family:'nskr';
+            src:url(./fonts/Noto_Sans_KR/NotoSansKR-Bold.otf);
+            font-weight:700;
+        }
+        /* black 900 */
+        @font-face {
+            font-family:'nskr';
+            src:url(./fonts/Noto_Sans_KR/NotoSansKR-Black.otf);
+            font-weight:900;
+        }
+
+        @font-face {
+            font-family:'gv';
+            src: url(./fonts/Great_Vibes/GreatVibes-Regular.ttf);
+            font-weight:400;
+        }
+
+        :root{
+            font-family:'nskr',sans-serif;
+            font-weight:400;
+            font-size:16px;
+            color:#0e0219;
+            line-height:1;
+        }
+
+        #wrap{
+            width:100%;
+            overflow:hidden;
+        }
+        .container,.f-container{
+            width:100%;
+            max-width:1280px;
+            margin:0 auto;
+            padding:0 22px;
+        }
+        .f-container{
+            padding-right:0;
+        }
+        
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            column-gap:20px;
+        }
+        #header{
+            position:fixed;            
+            left:0;
+            right:0;
+            top:0;
+            background:#fff;
+            z-index:20;
+        }
+        #header .grid{
+            align-items:center;
+            height:100px;
+        }
+        h1{
+            /* grid-row:1/2; */
+            order:2;
+            grid-column:2/4;
+            text-align:center;
+        }
+        h1 span{display:none;}
+        h1 img{
+            width:64px;
+        }
+        #header nav{
+            display:none;
+            position:absolute;
+            left:0;
+            right:0;
+            top:100px;
+            z-index:200;
+        }
+        #header nav.active{
+            display:block;
+        }
+        #header nav ul{
+            display:flex;
+            flex-flow:column nowrap;
+            justify-content:space-evenly;
+            align-items:center;
+            height:calc(100vh - 100px);
+            background:#361656;
+            font-size:24px;
+            color:#fff;
+        }
+        #header nav li:hover{
+            color:#361656;
+            text-shadow:1px 0 0 #fff, -1px 0 0 #fff,0 1px 0 #fff,0 -1px 0 #fff;
+        }        
+        .lang{
+            /* grid-row:1/2; */
+            order:1;
+            grid-column:1/2;
+            display:flex;
+        }
+        .lang select{
+            font-size:14px;
+            border:none;
+            order:2;
+        }
+        .lang .img-box{
+            display:none;
+            width:26px;
+            order:1;
+        }
+        .btn-nav{
+            /* grid-row:1/2; */
+            order:3;
+            grid-column:4/5;            
+            height:18px;
+            display:flex;
+            flex-flow:column nowrap;
+            justify-content:space-between;
+            align-items:flex-end;
+        }
+        .btn-nav::before,.btn-nav::after{
+            content:'';
+            display:block;
+            width:26px;
+            height:2px;
+            border-radius:1px;
+            background:#361656;
+        }
+        .btn-nav span{
+            width:26px;
+            height:2px;
+            border-radius:1px;
+            background:#361656;
+            text-indent:-99999px;
+        }
+        #sec01{
+            position: relative;
+            z-index:19;
+            padding-top:100px;
+            background:url('./images/bg-full.jpg') no-repeat center center;
+            background-size:cover;
+
+        }
+        #sec01 .container{
+            position:relative;
+            overflow:hidden;
+            height:411px;
+            background:url()
+        }
+        #sec01 h2{
+            display:none;
+        }
+        #sec01 h3{
+            font-family:'gv',serif;
+            font-weight:900;
+            font-size:25vw;
+            font-style:italic;
+            color:rgba(255,255,255,0.5);
+            position:absolute;
+            top:130px;
+            left:50%;
+            transform:translateX(-55%);
+            
+        }        
+        #sec01 article{
+            position:absolute;
+            top:0;
+            bottom:0;
+        }
+        #sec01 .art01{
+            left:0;
+            right:0;
+        }
+        #sec01 .art02{
+            left:100%;
+            right:-100%;
+        }
+        #sec01 .art03{
+            left:200%;
+            right:-200%;
+        }
+        #sec01 .grid{
+            grid-template-columns:1fr;
+            padding-top:60px;
+        }
+        #sec01 p{
+            position:relative;
+            z-index:10;
+            margin-bottom:9px;
+            font-size:24px;
+            text-align:center;
+        }
+        #sec01 p:last-of-type{
+            margin-bottom:70px;
+        }
+        #sec01 .img-box{
+            position:absolute;
+            left:50%;
+            bottom:0;
+            z-index:9;
+            transform:translateX(-50%);
+            width:360px;
+        }
+        #sec01 .img-box::before{
+            content:'';
+            display:block;
+            width:250px;
+            height:250px;
+            border-radius:50%;
+            background:rgba(255,255,255,0.3);
+            position:absolute;
+            left:30px;
+            top:-30px;
+            z-index:100;
+        }
+        #sec01 .img-box img{
+            position:relative;
+            z-index:101;
+        }
+        .pager{
+            position:absolute;
+            left:50%;
+            bottom:22px;
+            z-index:20;
+            transform:translateX(-50%);
+            width:70px;
+            display:flex;
+            justify-content:space-between;
+        }
+        .pager span{
+            width:14px;
+            height:14px;
+            border-radius:50%;
+            background:#fff;
+            text-indent:-99999px;
+        }
+        .pager span:first-child{
+            background:#361656;
+        }
+        #sec02,#sec03,#sec04,#sec05,#sec06{
+            padding:45px 0;
+        }
+        #sec02 h2{
+            margin-bottom:30px;
+            font-weight:600;
+            font-size:20px;
+            color:#664089;
+            text-align:center;
+        }
+        #sec02 h2+p{
+            margin-bottom:20px;
+            font-size:16px;
+            color:#000;
+            text-align:center;
+        }
+        #sec02 ul{
+            width:10000px;
+            border-top:2px solid #361656
+        }
+        #sec02 li{
+            float:left;
+            width:148px;
+            margin-right:20px;
+            position:relative;
+        }
+        #sec02 h3{
+            position:absolute;
+            left:0;
+            right:0;
+            top:90px;
+            font-size:20px;
+            color:#fff;
+            text-align:center;
+            transition:0.3s;
+        }
+        #sec02 li::before{
+            content:'';
+            display:block;
+            position:absolute;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+            background:rgba(0,0,0,0.8);
+            transition:0.3s;
+        }
+        #sec02 h3+p{
+            position:absolute;
+            left:0;
+            right:0;
+            top:126px;
+            font-size:13px;
+            font-weight:500;
+            color:#fff;
+            text-align:center;
+            transition:0.3s;
+        }
+        #sec02 li:hover::before{
+            background:rgba(0,0,0,0);
+        }
+        #sec02 li:hover h3{
+            top:176px;
+        }
+        #sec02 li:hover h3+p{
+            top:210px;
+        }
+        #sec02 .prev-next{
+            width:64px;
+            height:250px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+        #sec02 .prev-next::before{
+            display:none;
+        }
+        #sec02 .prev-next div{
+            width:21px;
+            height:21px;
+            border:2px solid #361656;
+            border-top:none;
+            border-right:none;
+            transform:rotate(45deg);
+            text-indent:-9999px;
+        }
+        #sec02 .prev-next .next{
+            transform:rotate(-135deg);
+        }
+        #sec03{
+            background:#9679b2 linear-gradient(135deg,black,rgba(0,0,0,0.7));
+            color:#fff;
+            text-align:center;
+        }
+        #sec03 h2{
+            margin-bottom:30px;
+            font-weight:500;
+            font-size:20px;
+        }
+        #sec03 h2+p{
+            margin-bottom:20px;
+        }
+        #sec03 ul{
+            width:59.49367088607595%;
+            margin:0 auto;
+            margin-bottom:20px;
+            display:grid;
+            grid-template-columns:1fr;
+            row-gap:20px;
+        }
+        #sec03 li{
+            position:relative;
+        }
+        #sec03 img:first-child{
+            filter:grayscale(1);
+            transition:0.3s;
+        }
+        #sec03 li:hover img:first-child{
+            filter:grayscale(0);
+        }
+        #sec03 img:last-child{
+            position:absolute;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+            display:none;
+        }
+        #sec03 li.active img:last-child{
+            display:block;
+        }
+        
+        #sec04{
+            max-width:1280px;
+            margin:0 auto;
+        }
+        #sec04 h2{
+            display:none;
+        }
+        #sec04 h3{
+            order:1;
+            grid-column:1/3;
+            margin-bottom:20px;
+            font-weight:500;
+            font-size:20px;
+            color:#361656;
+            text-transform:uppercase;
+        }
+        #sec04 h3 span:first-child{
+            display:none;
+        }
+        #sec04 p:first-of-type{
+            display:none;
+        }
+        #sec04 ul{
+            order:3;
+            grid-column:1/5;
+        }  
+        #sec04 #art01{
+            margin-bottom:45px;
+        }      
+        #sec04 #art01 li{
+            float:left;
+            width:50%;
+            position:relative;
+        }
+        #sec04 #art01 li:first-child{
+            background:#664089;
+            height:100%;
+        }
+        #sec04 #art01 li h4{
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform:translate(-50%,-50%);
+            font-size:14px;
+            color:#fff;
+            text-transform:uppercase;
+        }
+        #sec04 #art02 ul{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+        }
+        #sec04 p:last-of-type{
+            order:2;
+            grid-column:3/5;
+            font-size:14px;
+            color:#361656;
+            text-align:right;
+            position:relative;
+        }
+        #sec04 p:last-of-type span{
+            position:relative;
+            z-index:10;
+            padding-right:12px;
+        }
+        #sec04 p:last-of-type::first-letter{
+            text-transform:uppercase;
+        }
+        #sec04 p:last-of-type::after{
+            content:'';
+            display:block;
+            width:24px;
+            height:24px;
+            border-radius:12px;
+            background:#9679b2;
+            position:absolute;
+            right:0;
+            top:-4px;
+            z-index:9;
+        }
+        #sec04 #art02 li{
+            overflow:hidden;
+            position:relative;
+        }
+        #sec04 #art02 li:hover::after{
+            content:'로그인후 사용하세요';
+            display:block;
+            position:absolute;
+            left:50%;
+            top:50%;
+            transform:translate(-50%,-50%);
+            text-align:center;
+            color:#361656;
+        }
+        #sec04 #art02 img{
+            filter:blur(7px);
+            transform:scale(1.1);
+        }
+
+        #sec05{
+            padding:30px 0;
+            background:linear-gradient(180deg,rgba(150,121,178,1),rgb(150,121,178,0.5));
+        }        
+        #sec05 h2{
+            display:none;
+        }
+        #sec05 .container{
+            position:relative;
+        }
+        #sec05 h3{
+            margin-bottom:36px;
+            font-weight:500;
+            font-size:28px;
+            text-align:center;
+            text-transform:uppercase;
+        }
+        #sec05 strong{
+            display:block;
+            font-weight:500;
+            font-size:1.4em;
+        }
+        #sec05 strong:nth-of-type(2){
+            font-size:2em;
+        }
+        #sec05 strong, #sec05 p{
+            margin-bottom:8px;
+        }
+        #sec05 p:nth-of-type(2),#sec05 p:nth-of-type(5){
+            margin-bottom:36px;
+        }
+        #sec05 .icons{
+            display:flex;
+            justify-content:center;
+            margin-bottom:16px;
+        }
+        #sec05 .img-box{            
+            width:28px;
+            margin-right:18px;
+        }
+        #sec05 .links{
+            display:flex;
+            flex-flow:column nowrap;
+        }
+        #sec05 .links>a{                        
+            margin-bottom:16px;
+            border:1px solid #361656;
+            padding:16px;
+            background:#fff;
+            color:#361656;
+            text-align:center;
+        }
+        #sec05 iframe{
+            display:none;
+            position:absolute;
+            left:630px;
+            top:-180px;
+            width:1270px;
+            height:764.41px;
+        }
+        #footer{
+            padding: 90px 0;
+            background: #0e0219;
+            color: #fff;
+        }
+        #footer .grid{
+            row-gap: 24px;
+        }
+        #footer h2{
+            grid-column: 1/5;
+            text-align: center;
+        }
+        #footer h2 img{
+            width: 58px;
+        }
+        #footer h2 span{
+            display: none;
+        }
+        #footer nav{
+            grid-column: 1/5;
+        }
+        #footer nav ul{
+            display: flex;
+            justify-content: center;
+            font-size: 13px;
+        }
+        #footer nav ul li{
+            margin-right: 12px;
+        }
+        #footer nav ul li:last-child{
+            margin-right: 0;
+        }
+        #footer address{
+            grid-column: 1/5;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            font-size: 11px;
+        }
+        #footer address p{
+            margin: 0 12px 4px 0px;
+        }
+        #footer .hidden{
+            display: none;
+        }
+        #aside h2,#aside .nav{
+            display: none;
+        }
+        #aside .nav{
+            display: block;
+        }
+        #aside .m-nav{
+            display: none;
+        }
+
+
+
+        
+
+
+
+        @media (min-width:768px){
+            .grid{
+                grid-template-columns:repeat(8,1fr);
+            }
+            h1{
+                grid-column:3/7;
+            }
+            h1 img{
+                width:120px;
+            }
+            .lang{
+                grid-column:1/3;
+            }
+            .lang .img-box{
+                display:block;
+            }
+            .btn-nav{
+                grid-column:7/9;
+            }
+            #sec01 .container{
+                height:500px;
+            }
+            #sec01 .grid{
+                padding-top:80px;
+            }
+            #sec01 h3{
+                font-size:27vw;
+            }
+            #sec01 p{
+                font-size:36px;
+                margin-bottom:12px;
+            }
+            #sec01 p:last-of-type{
+                margin-bottom:22px;
+            }
+            #sec01 .img-box{
+                width:480px;
+            }
+            #sec01 .img-box::before{
+                width:360px;
+                height:360px;
+            }
+            #sec02,#sec03,#sec04,#sec05,#sec06{
+                padding:90px 0;
+            }
+            #sec02 h2{
+                font-size:22px;
+            }
+            #sec02 h2+p{
+                font-size:20px;
+                margin-bottom:30px;
+            }
+            #sec02 li{
+                width:220px;
+            }
+            #sec02 .prev-next{
+                width:166px;
+                height:373px;
+                justify-content:center;
+            }
+            #sec02 .prev{
+                margin-right:20px;
+            }
+            #sec02 h3{
+                top:134px;
+                font-weight:700;
+                font-size:30px;
+            }
+            #sec02 h3+p{
+                top:185px;
+                font-size:20px;
+            }
+            #sec02 li:hover h3{
+                top:256px;
+            }
+            #sec02 li:hover h3+p{
+                top:308px;
+            }
+            #sec03{
+                font-size:20px;
+            }
+            #sec03 h2{
+                font-size:22px;
+            }
+            #sec03 h2+p{
+                margin-bottom:40px;
+            }
+            #sec03 ul{
+                width:48.61878453038674%;
+                margin-bottom:56px;
+            }
+            #sec04 #art01{
+                margin-bottom:90px;
+            }  
+            #sec04 h3{
+                grid-column:1/9;
+                font-size:22px;
+            }
+            #sec04 h3 span:first-child{
+                display:block;
+            }
+            #sec04 h3 span:last-child{
+                display:none;
+            }
+            #sec04 p:first-of-type{
+                display:block;
+                margin-bottom:36px;
+                order:2;
+                grid-column: 1/5;  
+                font-size:20px;              
+            }
+            #sec04 ul{
+                order:4;
+                grid-column:1/9;
+            }
+            #sec04 #art01 li h4{
+                font-size:20px;
+            }
+            #sec04 #art02 ul{
+                grid-template-columns:repeat(6,1fr);
+            }
+
+            #sec04 p:last-of-type{
+                order:3;
+                grid-column:5/9;
+            }
+            #sec05{
+                padding:90px 0;
+            }
+            #sec05 .links{
+                flex-flow:row nowrap;
+                justify-content:center;
+            }
+            #sec05 .links>a{
+                width:300px;
+                margin-bottom:0;
+                margin-right:16px;
+            }
+            #footer h2{
+                grid-row: 1/3;
+                grid-column: 1/2;
+            }
+            #footer nav{
+                grid-row: 1/2;
+                grid-column: 2/9;
+            }
+            #footer nav ul{
+                justify-content: flex-start;
+            }
+            #footer address{
+                justify-content: flex-start;
+                grid-row: 2/3;
+                grid-column: 2/9;
+            }
+
+        }
+
+        @media (min-width:960px){
+            #sec02 li{
+                width:360px;
+                margin-right:30px;
+            }
+            #sec02 .prev-next{
+                width:220px;
+                height:611px;
+            }
+            #sec02 .prev{
+                margin-right:40px;
+            }
+            #sec02 h3{
+                top:250px;
+                font-weight:700;
+                font-size:38px;
+            }
+            #sec02 h3+p{
+                top:310px;
+                font-size:24px;
+            }
+            #sec02 li:hover h3{
+                top:400px;
+            }
+            #sec02 li:hover h3+p{
+                top:460px;
+            }
+
+        }
+
+        @media (min-width:1280px){
+            .container,.f-container{
+                padding:0 20px;
+            }
+            .f-container{
+                padding-right:0;
+            }
+            .grid{
+                grid-template-columns:repeat(12,1fr);
+            }
+            #header{
+                position:absolute;
+                background:transparent;
+            }
+            h1{
+                order:1;
+                grid-column:1/4;
+                text-align:left;
+            }
+            nav{
+                display:block;
+                order:2;
+                grid-column:4/10;
+                position:static;
+            }
+            nav ul{
+                flex-direction:row;
+                justify-content:space-between;
+                height:auto;
+                background:transparent;
+                font-size:14px;
+                color:#0e0219;
+            }
+            .lang{
+                order:3;
+                grid-column:10/13;
+                flex-flow:row-reverse nowrap;
+            }
+            .btn-nav{
+                display:none;
+            }           
+            #sec01 .container{
+                height:800px;
+            }
+            #sec01 .grid{
+                grid-template-columns:1fr 1fr;
+                padding-top:460px;
+            }
+            #sec01 h3{
+                font-size:300px;
+            }
+            #sec01 p{
+                font-size:60px;
+                text-align:left;
+            }
+            #sec01 p:last-of-type{
+                text-align:right;
+            }
+            #sec01 .img-box{
+                width:820px;
+            }
+            #sec01 .img-box::before{
+                width:600px;
+                height:600px;
+            }
+            #sec02,#sec03,#sec04,#sec05,#sec06{
+                padding:180px 0;
+            }
+            #sec02 h2{
+                margin-bottom:43px;
+                font-size:30px;
+                text-align:left;
+            }
+            #sec02 h2+p{
+                margin-bottom:60px;
+                font-size:40px;
+                text-align:left;
+            }
+            #sec02 li{
+                width:430px;
+                margin-right:30px;
+            }
+            #sec02 .prev-next{
+                width:375px;
+                margin-right:0;
+            }
+            #sec02 h3{
+                top:261px;
+                font-weight:700;
+                font-size:60px;
+            }
+            #sec02 h3+p{
+                top:360px;
+                font-size:40px;
+            }
+            #sec02 li:hover h3{
+                top:504px;
+            }
+            #sec02 li:hover h3+p{
+                top:605px;
+            }
+            #sec03{
+                font-size:30px;
+            }
+            #sec03 h2{
+                margin-bottom:45px;
+                font-size:40px;
+            } 
+            #sec03 h2+p{
+                margin-bottom:60px;
+            }
+            #sec03 ul{
+                width:100%;
+                margin-bottom:60px;
+                grid-template-columns:1fr 1fr 1fr;
+                row-gap:0;
+                column-gap:20px;
+            }
+            #sec03 p:last-of-type{
+                line-height:48px;
+            }            
+            #sec04 .art{
+                float:left;
+                width:50%;
+            }
+            #sec04 #art01{
+                margin-bottom:0;
+                border-right:1px solid #361656;
+            }  
+            #sec04 .grid{
+                grid-template-columns:repeat(6,1fr);
+            }
+            #sec04 h3{
+                grid-column:1/7;
+                font-size:30px;
+            }
+            #sec04 p:first-of-type{
+                grid-column:1/7;
+                width:60%;
+                font-size:40px;                
+            }
+            #sec04 ul{
+                order:3;
+                grid-column:1/6;
+                margin-bottom:28px;
+            }
+            #sec04 #art02 ul{
+                grid-template-columns:repeat(3,1fr);
+                row-gap:20px;
+                column-gap:20px;
+            }
+            #sec04 p:last-of-type{
+                order:4;
+                grid-column:1/7;
+                font-size:16px;
+                text-align:left;
+            }
+            #sec04 p:last-of-type::after{
+                display:inline-block;
+                width:36px;
+                height:1px;
+                margin-bottom:5px;
+                border-radius:0;
+                position:static;
+            }
+            #sec05{
+                padding:180px 0;
+            }
+            #sec05 h3{
+                text-align:left;
+            }
+            #sec05 .icons,#sec05 .links{
+                justify-content:left;
+            }
+            #sec05 .links>a{
+                width:250px;
+            }
+            #sec05 iframe{
+                display:block;
+            }
+            #footer h2{
+                grid-row: 1/2;
+                grid-column: 1/2;
+            }
+            #footer nav{
+                grid-row: 1/2;
+                grid-column: 11/13;
+            }
+            #footer nav ul{
+                flex-flow: column nowrap;
+                color: #fff;
+                align-items: flex-end;
+            }
+            #footer nav ul li{
+                margin: 0 0 4px 0;
+            }
+            #footer address{
+                grid-row: 1/2;
+                grid-column: 2/9;
+            }
+            #footer address p{
+                margin: 0 44px 42px 0;
+            }
+            #footer .hidden{
+                display: block;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <section id="wrap">
+        <header id="header">
+            <div class="container">
+                <div class="grid">
+                    <h1>
+                        <a href="./index.html">
+                            <span>하나성형외과</span>
+                            <picture>
+                                <source media="(min-width:768px)" srcset="./images/logo02.svg">
+                                <img src="./images/logo01.svg" alt="로고">
+                            </picture>
+                        </a>
+                    </h1>
+                    <nav>
+                        <ul>
+                            <li><a href="#">하나성형외과</a></li>
+                            <li><a href="#">수술시술</a></li>
+                            <li><a href="#">실시간상담</a></li>
+                            <li><a href="#">커뮤니티</a></li>
+                        </ul>
+                    </nav>
+                    <div class="lang">
+                        <select>
+                            <option value="1">KO</option>
+                            <option value="2">CN</option>
+                            <option value="3">US</option>
+                            <option value="4">JP</option>
+                        </select>
+                        <div class="img-box"><img src="./images/flag_kr.svg" alt="대한민국"></div>                        
+                    </div>
+                    <div class="btn-nav" onclick="callNav();">
+                        <span>내비게이션 버튼</span>
+                    </div>
+                </div>
+            </div>            
+        </header>
+        <section class="sec" id="sec01">
+            <div class="container">
+                <h2>이벤트 바로가기</h2>
+                <article class="art01">
+                    <div class="grid">
+                        <h3>Beautiful</h3>
+                        <p>[자신감]의 시작</p>
+                        <p>하나성형외과</p>
+                        <div class="img-box"><img src="./images/full-img01.png" alt="여름 이벤트"></div>
+                    </div>
+                </article>
+                <article class="art02">
+                    <div class="grid">
+                        <h3>Pretty</h3>
+                        <p>단골만 모여</p>
+                        <p>하나성형외과</p>
+                        <div class="img-box"><img src="./images/full-img02.png" alt="단골 이벤트"></div>
+                    </div>
+                </article>
+                <article class="art03">
+                    <div class="grid">
+                        <h3>Cute</h3>
+                        <p>북마크만 모여</p>
+                        <p>하나성형외과</p>
+                        <div class="img-box"><img src="./images/full-img03.png" alt="즐겨찾기 이벤트"></div>
+                    </div>
+                </article>
+                <div class="pager">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                </div>
+            </div>            
+        </section>
+        <section class="sec" id="sec02">
+            <div class="f-container">
+                <h2>실력은 하나의 기본입니다.</h2>
+                <p>
+                    하나성형외과는 믿음과 실력을 바탕으로<br>
+                    한분 한분의  말씀을 경청하고 더 좋은<br>
+                    결과를 위해 다양한 프로그램을 진행합니다.
+                </p>
+                <ul class="clearfix">
+                    <li class="prev-next">
+                        <div class="prev">앞으로</div>
+                        <div class="next">뒤로</div>
+                    </li>
+                    <li>
+                        <h3>눈성형</h3>
+                        <p>
+                            눈매, 쌍커플, 생활습관<br>
+                            까지 고려한 시술
+                        </p>
+                        <div class="img-box"><img src="./images/s2_img01.png" alt="눈성형"></div>
+                    </li>
+                    <li>
+                        <h3>입술성형</h3>
+                        <p>
+                            어느 각도에서나 아름<br>
+                            다운 입꼬리
+                        </p>
+                        <div class="img-box"><img src="./images/s2_img02.png" alt="입술성형"></div>
+                    </li>
+                    <li>
+                        <h3>코성형</h3>
+                        <p>
+                            얼굴 균형을 고려한<br>
+                            이상적인 맞춤 시술
+                        </p>
+                        <div class="img-box"><img src="./images/s2_img03.png" alt="코성형"></div>
+                    </li>
+                    <li>
+                        <h3>하악성형</h3>
+                        <p>
+                            사각턱, 주걱턱을<br>
+                            계란형으로
+                        </p>
+                        <div class="img-box"><img src="./images/s2_img04.png" alt="하악성형"></div>
+                    </li>                    
+                </ul>
+            </div>            
+        </section>
+        <section class="sec" id="sec03">
+            <div class="container">
+                <h2>하나성형외과만의 철학</h2>
+                <p>하나성형외과는 오로지 아름다움만을  추구합니다</p>
+                <ul>
+                    <li onclick="changeImg(this);">
+                        <img src="./images/s3-img01-1.jpg" alt="그림1-1">
+                        <img src="./images/s3-img01-2.jpg" alt="그림1-2">
+                    </li>
+                    <li onclick="changeImg(this);">
+                        <img src="./images/s3-img02-1.jpg" alt="그림2-1">
+                        <img src="./images/s3-img02-2.jpg" alt="그림2-2">
+                    </li>
+                    <li onclick="changeImg(this);">
+                        <img src="./images/s3-img03-1.jpg" alt="그림3-1">
+                        <img src="./images/s3-img03-2.jpg" alt="그림3-2">
+                    </li>
+                </ul>
+                <p>
+                    개개인의 얼굴형과 피부, 골격의 특성에 맞추어<br>
+                    조화로운 선택을 하실수 있도록 도와드립니다.
+                </p>
+            </div>            
+        </section>
+        <section class="sec clearfix" id="sec04">
+            <h2>비포 에프터 셀프후기</h2>
+            <article class="art" id="art01">
+                <div class="container">
+                    <div class="grid">
+                        <h3>
+                            <span>hana before & after</span>
+                            <span>hana b & a</span>
+                        </h3>
+                        <p>
+                            하나성형외과의 시술 결과를 확인해보세요
+                        </p>
+                        <ul class="clearfix">
+                            <li>
+                                <h4>login</h4>
+                            </li>
+                            <li>
+                                <h4>after</h4>
+                                <div class="img-box">
+                                    <img src="./images/s2_img01.png" alt="after image">
+                                </div>
+                            </li>
+                        </ul>
+                        <p><span>view more</span></p>
+                    </div>
+                </div>
+            </article>
+            <article class="art" id="art02">
+                <div class="container">
+                    <div class="grid">
+                        <h3>
+                            <span>hana selfie</span><span>hana selfie</span>                            
+                        </h3>
+                        <p>
+                            하나성형외과의 리얼 셀프후기
+                        </p>
+                        <ul>
+                            <li>
+                                <img src="./images/s5_img01.jpg" alt="img01">
+                            </li>
+                            <li>
+                                <img src="./images/s5_img02.jpg" alt="img02">
+                            </li>
+                            <li>
+                                <img src="./images/s5_img03.jpg" alt="img03">
+                            </li>
+                            <li>
+                                <img src="./images/s5_img04.jpg" alt="img04">
+                            </li>
+                            <li>
+                                <img src="./images/s5_img05.jpg" alt="img05">
+                            </li>
+                            <li>
+                                <img src="./images/s5_img06.jpg" alt="img06">
+                            </li>
+                        </ul>
+                        <p><span>view more</span></p>
+                    </div> 
+                </div>
+            </article>
+        </section>
+        <section class="sec" id="sec05">
+            <h2>contact us</h2>
+            <div class="container">
+                <h3>contact us</h3>              
+                <strong>인천광역시 서구 당하동 111-1, 5층</strong>
+                <p>인천지하철 2호선 완정역 2번출구</p>
+                <p>도보 5분 / 후면 주차장 사용가능</p>
+                <strong>TEL 032-564-2543</strong>
+                <p>평일 : 09:30 ~ 19:30 </p>
+                <p>토요일 : 09:30 ~ 15:00</p>
+                <p>일요일, 공휴일 휴진</p>
+                <div class="icons">
+                    <div class="img-box">
+                        <a href="#">
+                            <img src="./images/icon-face.svg" alt="face">
+                        </a>                        
+                    </div>
+                    <div class="img-box">
+                        <a href="#">
+                            <img src="./images/icon-inst.svg" alt="inst">
+                        </a>
+                    </div>
+                    <div class="img-box">
+                        <a href="#">
+                            <img src="./images/icon-twit.svg" alt="twit">
+                        </a>
+                    </div>
+                </div>
+                <div class="links">
+                    <a href="#">예약바로가기</a>
+                    <a href="#">의료진바로가기</a>
+                </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d25289.206481824374!2d126.68492535000001!3d37.59860955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sko!2skr!4v1687249345009!5m2!1sko!2skr" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>            
+        </section>
+        <footer id="footer">
+            <div class="container">
+                <div class="grid">
+                    <h2>
+                        <a href="./index.html">
+                            <span>하나성형외과</span>
+                            <img src="./images/logo01-white.svg" alt="하나성형외과">
+                        </a>
+                    </h2>
+                    <nav>
+                        <ul>
+                            <li><a href="#">개인정보처리방침</a></li>
+                            <li><a href="#">사이트이용약관</a></li>
+                            <li><a href="#">오시는길</a></li>
+                            <li><a href="#">사이트맵</a></li>
+                        </ul>
+                    </nav>
+                    <address>
+                        <p>상호명:하나성형외과</p>
+                        <p class="hidden">대표:최진식</p>
+                        <p class="hidden">사업자번호:123-456-7890</p>
+                        <p>대표번호:032-123-4567</p>
+                        <p>주소:인천광역시 서구 당하동 111-1, 5층</p>
+                        <p>Copyright HANA-cop 2023</p>
+                    </address>
+                </div>
+            </div>            
+        </footer>
+    </section>
+
+
+    <script src="./js/swiper.js"></script>
+    <script>
+        let elNav = document.querySelector('nav');
+        function callNav(){
+            elNav.classList.toggle('active');
+        }
+
+        let elS3Li = document.querySelectorAll('#sec03 li');
+        console.log(elS3Li);
+        function changeImg(self){
+            for(let idx=0;idx<=elS3Li.length-1;idx++){
+                elS3Li[idx].classList.remove('active');
+            }
+            self.classList.add('active');
+        }
+    </script>
+</body>
+</html>
