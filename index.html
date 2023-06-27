@@ -12,23 +12,68 @@
     <script>
         window.addEventListener('load',()=>{
             let _flag = document.querySelector('.lang img');
-                let _naNum = document.querySelector('#na-num');
-                let changeFlag = () =>{
-                let naCode = _naNum.value;
-                    _flag.setAttribute('src',`./images/flag_${naCode}.svg`);
-                    _flag.setAttribute('alt',naCode);
-            }
+            let _naNum = document.querySelector('#na-num');
+            let _btnNab = document.getElementsByClassName('btn-nav');
+            let _mainNav = document.querySelector('#header nav');
+            let _header = document.getElementById('header');
+            
 
-                _naNum.addEventListener('change',()=>{
-                    let naCode = _naNum.value;
-                    _flag.setAttribute('src',`./images/flag_${naCode}.svg`);
-                    _flag.setAttribute('alt',naCode);
+
+
+            // let naCode = _naNum.value;
+            //     _flag.setAttribute('src',`./images/flag_${naCode}.svg`);
+            //     _flag.setAttribute('alt',naCode);
+
+            // 헤더 반응 이벤트
+            let showHeader = ()=>{
+                let scrollY = document.documentElement.scrollTop;
+                if(scrollY>=500){
+                    _header.style.position='fixed';
+                    _header.style.background='#fff';
+                }else{
+                    _header.style.position='absolute';
+                    _header.style.background='transparent';
+            };
+        }
+
+            // 국가변경 함수
+            let changFlag = ()=>{
+            let naCode = _naNum.value;
+                _flag.setAttribute('src',`./images/flag_${naCode}.svg`);
+                _flag.setAttribute('alt',naCode);
+            }
+            
+            // 네비게이션 보이기감추기 함수
+
+            let showNav =  ()=>{
+                if(_btnNab[0].getAttribute('data-role')==1){
+                    // 보이기
+                _mainNav.style.left='0';
+                _mainNav.style.right='0';
+                _btnNab[0].setAttribute('data-role','0');
+            }else{
+                // 안보이기
+                _mainNav.style.left='100%';
+                _mainNav.style.right='-100%';
+                _btnNab[0].setAttribute('data-role','1');
+            }
+        }
+            
+            // 네비 이벤트
+
+            _naNum.addEventListener('change',changFlag)
+            _btnNab[0].addEventListener('click',showNav);
+
+            // 문서스크롤 이벤트
+
+            document.addEventListener('scroll',showHeader);
+
             })
 
-            _naNum.addEventListener('change',changeFlag);
+            
 
             
-        })
+
     </script>
 </head>
 <body>
@@ -67,7 +112,7 @@
                             <img src="./images/flag_jp.svg" alt="일본" style="display: none;"> -->
                         </div>
                     </div>
-                    <div class="btn-nav" onclick="callNav();">
+                    <div class="btn-nav" data-role="1">
                         <span>내비게이션 버튼</span>
                     </div>
                 </div>
