@@ -9,6 +9,27 @@
     <link rel="stylesheet" href="./css/default.css">
     <link rel="stylesheet" href="./css/index.css">
     <title>하나성형외과</title>
+    <script>
+        window.addEventListener('load',()=>{
+            let _flag = document.querySelector('.lang img');
+                let _naNum = document.querySelector('#na-num');
+                let changeFlag = () =>{
+                let naCode = _naNum.value;
+                    _flag.setAttribute('src',`./images/flag_${naCode}.svg`);
+                    _flag.setAttribute('alt',naCode);
+            }
+
+                _naNum.addEventListener('change',()=>{
+                    let naCode = _naNum.value;
+                    _flag.setAttribute('src',`./images/flag_${naCode}.svg`);
+                    _flag.setAttribute('alt',naCode);
+            })
+
+            _naNum.addEventListener('change',changeFlag);
+
+            
+        })
+    </script>
 </head>
 <body>
     <section id="wrap">
@@ -33,17 +54,17 @@
                         </ul>
                     </nav>
                     <div class="lang">
-                        <select id="na-num" onchange="fnChange(this.value);">
-                            <option value="1">대한민국</option>
-                            <option value="2">중국</option>
-                            <option value="3">미국</option>
-                            <option value="4">일본</option>
+                        <select id="na-num">
+                            <option value="kr">대한민국</option>
+                            <option value="cn">중국</option>
+                            <option value="us">미국</option>
+                            <option value="jp">일본</option>
                         </select>
                         <div class="img-box">
-                            <img id="na-num01" src="./images/flag_kr.svg" alt="대한민국">
-                            <img id="na-num02" src="./images/flag_cn.svg" alt="중국" style="display: none;">
-                            <img id="na-num03" src="./images/flag_us.svg" alt="미국" style="display: none;">
-                            <img id="na-num04" src="./images/flag_jp.svg" alt="일본" style="display: none;">
+                            <img src="./images/flag_kr.svg" alt="대한민국">
+                            <!-- <img src="./images/flag_cn.svg" alt="중국" style="display: none;">
+                            <img src="./images/flag_us.svg" alt="미국" style="display: none;">
+                            <img src="./images/flag_jp.svg" alt="일본" style="display: none;"> -->
                         </div>
                     </div>
                     <div class="btn-nav" onclick="callNav();">
@@ -282,9 +303,6 @@
                 </div>
             </div>            
         </footer>
-    </section>
-    <script src="./js/swiper.js"></script>
-    <script src="./js/default.js"></script>
-    <script src="./js/index.js"></script>    
+    </section>  
 </body>
 </html>
