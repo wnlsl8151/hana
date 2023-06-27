@@ -12,18 +12,35 @@
     <script>
         window.addEventListener('load',()=>{
             let _flag = document.querySelector('.lang img');
-            let _naNum = document.querySelector('#na-num');
+            let _naNum = document.getElementById('na-num');
             let _btnNab = document.getElementsByClassName('btn-nav');
             let _mainNav = document.querySelector('#header nav');
             let _header = document.getElementById('header');
             
+            
 
+            // 국기변경 함수
+            let changFlag = ()=>{
+                let naCode = _naNum.value;
+                _flag.setAttribute('src',`./images/flag_${naCode}.svg`);
+                _flag.setAttribute('alt',naCode);
+            }
 
-
-            // let naCode = _naNum.value;
-            //     _flag.setAttribute('src',`./images/flag_${naCode}.svg`);
-            //     _flag.setAttribute('alt',naCode);
-
+            // 내비게이션 보이기감추기 함수
+            let showNav = ()=>{
+                if(_btnNab[0].getAttribute('data-role')==1){
+                    // 보이기
+                    _mainNav.style.left='0';
+                    _mainNav.style.right='0';
+                    _btnNab[0].setAttribute('data-role','0');
+                }else{
+                    //안보이기
+                    _mainNav.style.left='100%';
+                    _mainNav.style.right='-100%';
+                    _btnNab[0].setAttribute('data-role','1');
+                }
+            }
+            
             // 헤더 반응 이벤트
             let showHeader = ()=>{
                 let scrollY = document.documentElement.scrollTop;
@@ -33,47 +50,18 @@
                 }else{
                     _header.style.position='absolute';
                     _header.style.background='transparent';
-            };
-        }
-
-            // 국가변경 함수
-            let changFlag = ()=>{
-            let naCode = _naNum.value;
-                _flag.setAttribute('src',`./images/flag_${naCode}.svg`);
-                _flag.setAttribute('alt',naCode);
+                };
             }
-            
-            // 네비게이션 보이기감추기 함수
 
-            let showNav =  ()=>{
-                if(_btnNab[0].getAttribute('data-role')==1){
-                    // 보이기
-                _mainNav.style.left='0';
-                _mainNav.style.right='0';
-                _btnNab[0].setAttribute('data-role','0');
-            }else{
-                // 안보이기
-                _mainNav.style.left='100%';
-                _mainNav.style.right='-100%';
-                _btnNab[0].setAttribute('data-role','1');
-            }
-        }
-            
-            // 네비 이벤트
-
-            _naNum.addEventListener('change',changFlag)
+            // 국기이벤트
+            _naNum.addEventListener('change',changFlag);
+            // 내비게이션 이벤트
             _btnNab[0].addEventListener('click',showNav);
-
             // 문서스크롤 이벤트
-
             document.addEventListener('scroll',showHeader);
 
-            })
-
             
-
-            
-
+        })
     </script>
 </head>
 <body>
@@ -107,9 +95,6 @@
                         </select>
                         <div class="img-box">
                             <img src="./images/flag_kr.svg" alt="대한민국">
-                            <!-- <img src="./images/flag_cn.svg" alt="중국" style="display: none;">
-                            <img src="./images/flag_us.svg" alt="미국" style="display: none;">
-                            <img src="./images/flag_jp.svg" alt="일본" style="display: none;"> -->
                         </div>
                     </div>
                     <div class="btn-nav" data-role="1">
@@ -348,6 +333,29 @@
                 </div>
             </div>            
         </footer>
-    </section>  
+        <aside id="aside">
+            <h2>사이드 내비게이션</h2>  
+            <nav class="m-nav">
+                <img src="./images/side-nav-m.png" alt="모바일 내비게이션" usemap="#m-nav">
+                <map name="m-nav">
+                    <area shape="circle" coords="27,27,25" href="#" alt="카카오톡">
+                    <area shape="circle" coords="27,90,25" href="#" alt="온라인상담">
+                    <area shape="circle" coords="27,153,25" href="#" alt="오시는길">
+                    <area shape="circle" coords="27,214,25" href="#sec01" alt="위로">
+                </map>
+
+            </nav>
+            <nav class="nav">
+                <img src="./images/side-nav.png" alt="내비게이션" usemap="#nav">
+                <map name="nav">
+                    <area shape="rect" coords="0,0,57,64" href="#" alt="카카오톡">
+                    <area shape="rect" coords="0,134,57,187" href="#" alt="온라인상담">
+                    <area shape="rect" coords="0,259,57,318" href="#" alt="오시는길">
+                    <area shape="rect" coords="0,388,57,447" href="#sec01" alt="위로">
+                </map>
+            </nav>
+        </aside>
+    </section>
+    
 </body>
 </html>
